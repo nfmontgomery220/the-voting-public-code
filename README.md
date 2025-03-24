@@ -1,4 +1,5 @@
-# the-voting-public-code
+# the-voting-public-code : data transparency project.
 RESTful code to calculate the impact of tariffs for a push to add a tariff category to individual sales receipts.
-This code is constructed under the belif that taxes should be listed as separate on sales receipts. This code is also constructed
-to demonstrate how imports are valued, taxes are applied,the impact on total cost and the attribution to imdividual purchases.
+This code is constructed under the belief that taxes should be listed as separate on sales receipts. This code is also constructed
+to demonstrate how imports are valued, taxes are applied,what the impact on total cost are and what the attribution is to imdividual purchases.
+Printed on the sales receipt, not buried in the price.
