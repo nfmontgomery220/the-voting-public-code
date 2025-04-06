@@ -1,1 +1,44 @@
+document.getElementById("submit").addEventListener("click", function () {
+    let itemDescription = document.getElementById("itemDescription").value;
+    let transactionValue = parseFloat(document.getElementById("transactionValue").value);
 
+    if (!itemDescription) {
+        alert("Please enter an item description.");
+        return;
+    }
+
+    fetch(`https://hts.usitc.gov/reststop/search?keyword=${encodeURIComponent(itemDescription)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (!data || data.length === 0) {
+                document.getElementById("htsCode").value = "";
+                document.getElementById("apiResult").innerText = "No matching HTS code found.";
+                document.getElementById("htsDetails").innerText = "";
+                document.getElementById("taxImpact").innerText = "";
+                return;
+            }
+
+            // Extract the first relevant HTS match (highest-level indent)
+            let htsMatch = data.find(entry => entry.htsCode.length === 4) || data[0];
+
+            // Populate HTS Code box
+            document.getElementById("htsCode").value = htsMatch.htsCode;
+
+            // Display API response data
+            document.getElementById("apiResult").innerText = `HTS Code: ${htsMatch.htsCode}, Description: ${htsMatch.desc}`;
+            document.getElementById("htsDetails").innerText = `Tariff Rate: ${htsMatch.tariffRate}%`;
+
+            // Display tariff categories
+            document.getElementById("tariff1").innerText = htsMatch.tariff1 || "N/A";
+            document.getElementById("tariff2").innerText = htsMatch.tariff2 || "N/A";
+
+            // Perform and display tariff tax calculation
+            if (transactionValue) {
+                let calculatedTax = (htsMatch.tariffRate / 100) * transactionValue;
+                document.getElementById("taxImpact").innerText = `Tariff Tax Cost: $${calculatedTax.toFixed(2)}`;
+            } else {
+                document.getElementById("taxImpact").innerText = "Enter a valid transaction value for tax calculation.";
+            }
+        })
+        .catch(error => console.error("Error fetching HTS data:", error));
+});
