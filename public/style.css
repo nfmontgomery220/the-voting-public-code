@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa; /* Light gray for a clean look */
+    font-family: Arial, sans-serif; /* Clean, modern font */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #007bff; /* Bootstrap primary blue */
+    font-weight: bold;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern card look */
+    border-radius: 8px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input, select, button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff; /* Bootstrap blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
+}
+
+/* Output Section */
+pre {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
+.card h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Grid for HTS and Trade Summary */
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+}
+
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+    font-size: 14px;
+}
+
+.reduced-form {
+    transform: scale(0.6); /* Scale down to 60% of its original size */
+    transform-origin: top left; /* Adjust scaling origin for proper alignment */
+}
+
+#htsWindow {
+    max-height: 300px; /* Limit height for the list */
+    overflow-y: auto; /* Add scroll for long lists */
+}
+
+.list-group-item {
+    font-size: 14px; /* Adjust font size for better fit */
+}
+
